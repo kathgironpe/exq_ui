@@ -2,12 +2,12 @@
   <%= if @item do %>
     <div class="col-4 my-2">
       <%= for %{name: name, label: label} <- @actions do %>
-        <%= link(label,
+        {link(label,
           class: "btn btn-danger btn-sm me-1",
           to: "#",
           phx_click: name,
           phx_value_raw: @item.raw
-        ) %>
+        )}
       <% end %>
     </div>
     <div class="col-12">
@@ -15,39 +15,39 @@
         <tbody>
           <tr>
             <th>Queue</th>
-            <td><%= @item.job.queue %></td>
+            <td>{@item.job.queue}</td>
           </tr>
           <tr>
             <th>Module</th>
-            <td><%= @item.job.class %></td>
+            <td>{@item.job.class}</td>
           </tr>
           <tr>
             <th>JID</th>
-            <td><%= @item.job.jid %></td>
+            <td>{@item.job.jid}</td>
           </tr>
           <tr>
             <th>Arguments</th>
-            <td><%= inspect(@item.job.args) %></td>
+            <td>{inspect(@item.job.args)}</td>
           </tr>
           <tr>
             <th>Enqueued At</th>
-            <td><%= human_time(@item.job.enqueued_at) %></td>
+            <td>{human_time(@item.job.enqueued_at)}</td>
           </tr>
           <tr>
             <th>Failed At</th>
-            <td><%= human_time(@item.job.failed_at) %></td>
+            <td>{human_time(@item.job.failed_at)}</td>
           </tr>
           <tr>
             <th>Last Retried At</th>
-            <td><%= human_time(@item.job.retried_at) %></td>
+            <td>{human_time(@item.job.retried_at)}</td>
           </tr>
           <tr>
             <th>Retry Count</th>
-            <td><%= @item.job.retry_count %></td>
+            <td>{@item.job.retry_count}</td>
           </tr>
           <tr>
             <th>Error Module</th>
-            <td><%= @item.job.error_class %></td>
+            <td>{@item.job.error_class}</td>
           </tr>
           <tr>
             <th>Error Message</th>

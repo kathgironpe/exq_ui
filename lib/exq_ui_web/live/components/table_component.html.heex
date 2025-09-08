@@ -3,7 +3,7 @@
     <div class="col-6">
       <%= for %{name: name, label: label} <- @actions do %>
         <button type="button" class="my-2 btn btn-danger btn-sm js-action" data-name={name}>
-          <%= label %>
+          {label}
         </button>
       <% end %>
     </div>
@@ -24,7 +24,7 @@
         <button type="submit" class="btn btn-primary js-submit-button" style="display:none">
           Submit
         </button>
-        <%= hidden_input(f, :action, class: "js-hidden-submit") %>
+        {hidden_input(f, :action, class: "js-hidden-submit")}
         <table class="table table-bordered" id={@id}>
           <thead>
             <tr>
@@ -32,7 +32,7 @@
                 <input class="form-check-input js-select-all-rows" type="checkbox" value="" />
               </th>
               <%= for %{header: header} <- @columns do %>
-                <th scope="col"><%= header %></th>
+                <th scope="col">{header}</th>
               <% end %>
             </tr>
           </thead>
@@ -40,14 +40,14 @@
             <%= for item <- @items do %>
               <tr>
                 <td class="text-center">
-                  <%= checkbox(f, item.id,
+                  {checkbox(f, item.id,
                     hidden_input: false,
                     checked_value: item.raw,
                     class: "form-check-input js-select-row"
-                  ) %>
+                  )}
                 </td>
                 <%= for %{accessor: accessor} = column <- @columns do %>
-                  <td class={column[:text_break] && "text-break"}><%= accessor.(item) %></td>
+                  <td class={column[:text_break] && "text-break"}>{accessor.(item)}</td>
                 <% end %>
               </tr>
             <% end %>

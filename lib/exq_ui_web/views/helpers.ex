@@ -14,7 +14,7 @@ defmodule ExqUIWeb.Helpers do
 
     assigns = %{to: link, class: "nav-link" <> active, name: name}
 
-    ~H|<.link navigate={@to} class={@class}><%= @name %></.link>|
+    ~H|<.link navigate={@to} class={@class}>{@name}</.link>|
   end
 
   def live_link(text, options) do
@@ -24,7 +24,7 @@ defmodule ExqUIWeb.Helpers do
       text: text
     }
 
-    ~H|<.link navigate={@to} class={@class}><%= @text %></.link>|
+    ~H|<.link navigate={@to} class={@class}>{@text}</.link>|
   end
 
   def human_time(nil) do
